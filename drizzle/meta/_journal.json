@@ -15,6 +15,13 @@
       "when": 1793091897511,
       "tag": "0001_perfect_swarm",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1793108326408,
+      "tag": "0002_auth",
+      "breakpoints": true
     }
   ]
 }
