@@ -1,0 +1,3 @@
+// Test-only harness. Bundled under ignored outputs; never part of the application Worker.
+import {createCompany,snapshot,action,reports} from '../lib/service.mjs';
+export default {async fetch(request,env){const p=await request.json(),user=p.user||'runtime-owner';try{let result;if(p.op==='create')result=await createCompany(env.DB,user,p.input);else if(p.op==='snapshot')result=await snapshot(env.DB,user,p.companyId);else if(p.op==='reports')result=await reports(env.DB,user,p.companyId,p.from,p.to);else result=await action(env.DB,user,p.companyId,p.input);return Response.json(result)}catch(e){return Response.json({error:e.message},{status:e.status||500})}}};
